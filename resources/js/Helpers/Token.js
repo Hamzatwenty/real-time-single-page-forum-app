@@ -4,7 +4,7 @@ class Token {
         const payload = this.payload(token);
         if (payload){
             var server = payload['iss'];
-            if (server == "http://localhost:8080/realtimeApp/public/api/auth/login"){
+            if (server == "http://localhost:8080/realtimeApp/public/api/auth/login" || server =="http://localhost:8080/realtimeApp/public/api/auth/signup"){
                 return true;
             }
             else{
