@@ -11,5 +11,10 @@
 |
 */
 
-Route::view('/','home');
-Route::view('/{any}', 'home');
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::any('/{catchall?}', function () {
+    return response()->view('home');
+})->where('catchall', '(.*)');

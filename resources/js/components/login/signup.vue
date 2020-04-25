@@ -9,7 +9,7 @@
             <span class="red--text" v-if="errors.password">{{errors.password[0]}}</span>
             <v-text-field label="Confirm Password" v-model="form.password_confirmation" type="password" required></v-text-field>
             <v-btn color="primary" class="white--text" type="submit">Sign Up</v-btn>
-            <router-link to="/login">
+            <router-link to="/realtimeApp/public/login">
                 <v-btn text>Login</v-btn>
             </router-link>
         </v-form>

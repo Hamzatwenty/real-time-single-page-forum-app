@@ -13,7 +13,7 @@ class User {
         const username = res.data.user;
         if (Token.isValid(access_token)){
             AppStorage.store(username,access_token)
-            window.location = '/forum'
+            window.location = '/realtimeApp/public/forum'
         }
     }
 
@@ -36,7 +36,7 @@ class User {
 
     logout(){
         AppStorage.clear();
-        window.location = '/forum'
+        window.location = '/realtimeApp/public/forum'
     }
     name(){
         if (this.loggedIn()){
@@ -48,6 +48,9 @@ class User {
             const payload = Token.payload(AppStorage.getToken());
             return payload['sub'];
         }
+    }
+    own(id){
+        return this.id() == id
     }
 }
 export default User = new User();

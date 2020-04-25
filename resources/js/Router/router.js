@@ -4,13 +4,17 @@ import Login from "../components/login/Login";
 import signup from "../components/login/signup";
 import Forum from "../components/forum/forum";
 import Logout from "../components/login/Logout";
+import read from "../components/forum/read";
+import Create from "../components/forum/create";
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/login', component: Login },
-    { path: '/signup', component: signup },
-    { path: '/forum', component: Forum , name: 'forum' },
-    { path: '/logout', component: Logout},
+    { path: '/realtimeApp/public/login', component: Login },
+    { path: '/realtimeApp/public/signup', component: signup },
+    { path: '/realtimeApp/public/forum', component: Forum , name: 'forum' },
+    { path: '/realtimeApp/public/logout', component: Logout},
+    { path: '/realtimeApp/public/question/:slug', component: read, name: 'read'},
+    { path: '/realtimeApp/public/ask', component: Create},
 ]
 
 const router = new VueRouter({

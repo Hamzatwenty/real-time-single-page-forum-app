@@ -17,11 +17,11 @@
         data(){
             return{
                 items:[
-                    {title : 'Forum', to: '/forum', show: true},
-                    {title : 'Login', to: '/login', show: !User.loggedIn()},
-                    {title : 'Ask Question', to: '/ask', show: User.loggedIn()},
-                    {title : 'Category', to: '/category', show: User.loggedIn()},
-                    {title : 'Logout', to: '/logout', show: User.loggedIn()},
+                    {title : 'Forum', to: '/realtimeApp/public/forum', show: true},
+                    {title : 'Login', to: '/realtimeApp/public/login', show: !User.loggedIn()},
+                    {title : 'Ask Question', to: '/realtimeApp/public/ask', show: User.loggedIn()},
+                    {title : 'Category', to: '/realtimeApp/public/category', show: User.loggedIn()},
+                    {title : 'Logout', to: '/realtimeApp/public/logout', show: User.loggedIn()},
                 ]
             }
         },
