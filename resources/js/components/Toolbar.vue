@@ -20,7 +20,7 @@
                     {title : 'Forum', to: '/realtimeApp/public/forum', show: true},
                     {title : 'Login', to: '/realtimeApp/public/login', show: !User.loggedIn()},
                     {title : 'Ask Question', to: '/realtimeApp/public/ask', show: User.loggedIn()},
-                    {title : 'Category', to: '/realtimeApp/public/category', show: User.loggedIn()},
+                    {title : 'Category', to: '/realtimeApp/public/category', show: User.admin()},
                     {title : 'Logout', to: '/realtimeApp/public/logout', show: User.loggedIn()},
                 ]
             }

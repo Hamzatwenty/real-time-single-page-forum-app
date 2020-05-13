@@ -4,20 +4,23 @@
             <v-flex xs8>
                <question v-for="question in questions" :key="question.path" :data=question></question>
             </v-flex>
-            sidebar
+            <v-flex xs4>
+                <app-sidebar></app-sidebar>
+            </v-flex>
         </v-layout>
     </v-container>
 </template>
 
 <script>
     import Question from "./question";
+    import AppSidebar from "./AppSidebar";
     export default {
         data(){
             return{
                 questions:{}
             }
         },
-        components: {Question},
+        components: {AppSidebar, Question},
         created() {
             axios.get('/realtimeApp/public/api/question').then(res => this.questions = res.data.data).catch(error => console.log(error.response.data))
         }

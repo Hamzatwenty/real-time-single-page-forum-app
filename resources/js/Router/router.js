@@ -6,6 +6,7 @@ import Forum from "../components/forum/forum";
 import Logout from "../components/login/Logout";
 import read from "../components/forum/read";
 import Create from "../components/forum/create";
+import createCategory from "../components/category/createCategory";
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
     { path: '/realtimeApp/public/logout', component: Logout},
     { path: '/realtimeApp/public/question/:slug', component: read, name: 'read'},
     { path: '/realtimeApp/public/ask', component: Create},
+    { path: '/realtimeApp/public/category', component: createCategory},
 ]
 
 const router = new VueRouter({
