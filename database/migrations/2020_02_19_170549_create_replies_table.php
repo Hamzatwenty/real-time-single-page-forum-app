@@ -13,7 +13,7 @@ class CreateRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('replies', function (Blueprint $table) {
+        Schema::create('reply', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('body');
 
@@ -31,6 +31,6 @@ class CreateRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('replies');
+        Schema::dropIfExists('reply');
     }
 }

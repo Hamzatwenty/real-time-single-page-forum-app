@@ -97,7 +97,7 @@ class ReplyController extends Controller
      */
     public function destroy(Question $question,Reply $reply)
     {
-        $question->delete();
+        $reply->delete();
         return \response(null, Response::HTTP_NO_CONTENT);
     }
 }
