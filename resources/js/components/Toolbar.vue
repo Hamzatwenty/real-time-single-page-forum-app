@@ -2,6 +2,7 @@
     <v-toolbar>
         <v-toolbar-title>Jers</v-toolbar-title>
         <v-spacer></v-spacer>
+        <app-notification v-if="loggedIn"></app-notification>
         <div class="hidden-sm-and-down">
             <router-link v-for="item in items" :key="item.title" :to="item.to" v-if="item.show">
                 <v-btn text>{{item.title}}</v-btn>
@@ -12,10 +13,13 @@
 </template>
 
 <script>
+    import AppNotification from "./AppNotification";
     export default {
         name: "Toolbar",
+        components: {AppNotification},
         data(){
             return{
+                loggedIn: User.loggedIn(),
                 items:[
                     {title : 'Forum', to: '/realtimeApp/public/forum', show: true},
                     {title : 'Login', to: '/realtimeApp/public/login', show: !User.loggedIn()},
