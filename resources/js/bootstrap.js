@@ -18,13 +18,19 @@ window.axios.defaults.headers.common['Authorization'] = Jwttoken;
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo';
+ import Echo from 'laravel-echo';
 
-// window.Pusher = require('pusher-js');
+ window.Pusher = require('pusher-js');
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
+ window.Echo = new Echo({
+     authEndpoint : 'http://localhost:8080/realtimeApp/public/broadcasting/auth',
+     broadcaster: 'pusher',
+     key: "1bfbbfc64b61bdd647b6",
+     cluster: "ap2",
+     encrypted: true,
+     auth:{
+         headers:{
+             Authorization : Jwttoken
+         }
+     }
+ });

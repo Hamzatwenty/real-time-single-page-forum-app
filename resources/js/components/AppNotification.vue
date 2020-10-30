@@ -2,8 +2,9 @@
     <div class="text-center">
         <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
-                <v-btn icon   v-bind="attrs" v-on="on">
-                    <v-icon :color="color">add_alert</v-icon> {{unreadCount}}
+                <v-btn icon v-bind="attrs" v-on="on">
+                    <v-icon :color="color">add_alert</v-icon>
+                    {{unreadCount}}
                 </v-btn>
             </template>
             <v-list>
@@ -26,20 +27,27 @@
     export default {
 
         name: "AppNotification",
-        data(){
-          return {
-              read: {},
-              unread: {},
-              unreadCount: 0,
-          }
-        },
-        created() {
-            if (User.loggedIn()){
-                this.getNotifications()
+        data() {
+            return {
+                read: {},
+                unread: {},
+                unreadCount: 0,
             }
         },
-        methods:{
-            getNotifications(){
+        created() {
+            if (User.loggedIn()) {
+                this.getNotifications()
+            }
+
+            Echo.private('App.User.' + User.id())
+                .notification((notification) => {
+                    this.unread.unshift(notification)
+                    this.unreadCount++
+                });
+        },
+
+        methods: {
+            getNotifications() {
                 axios.post(`/realtimeApp/public/api/notifications`)
                     .then(res => {
                         this.read = res.data.read
@@ -47,17 +55,17 @@
                         this.unreadCount = res.data.unread.length
                     })
             },
-            readIt(notification){
-                axios.post('/realtimeApp/public/api/markAsRead', {id:notification.id})
+            readIt(notification) {
+                axios.post('/realtimeApp/public/api/markAsRead', {id: notification.id})
                     .then(res => {
-                        this.unread.splice(notification,1)
+                        this.unread.splice(notification, 1)
                         this.read.push(notification)
                         this.unreadCount--
                     })
             }
         },
-        computed:{
-            color(){
+        computed: {
+            color() {
                 return this.unreadCount > 0 ? 'red' : 'red lighten-4'
             }
         }
