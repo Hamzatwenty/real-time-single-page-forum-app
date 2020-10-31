@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="pa-3">Jers
+    <v-footer class="pa-3">Realtime App
         <v-spacer></v-spacer>
         <div>&copy; {{ new Date().getFullYear() }}</div>
     </v-footer>

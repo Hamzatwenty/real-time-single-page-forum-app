@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Parallex from "../components/parallex";
 import Login from "../components/login/Login";
 import signup from "../components/login/signup";
 import Forum from "../components/forum/forum";
@@ -10,6 +11,7 @@ import createCategory from "../components/category/createCategory";
 Vue.use(VueRouter)
 
 const routes = [
+    { path: '/realtimeApp/public/', component: Parallex},
     { path: '/realtimeApp/public/login', component: Login, name: 'login' },
     { path: '/realtimeApp/public/signup', component: signup },
     { path: '/realtimeApp/public/forum', component: Forum , name: 'forum' },

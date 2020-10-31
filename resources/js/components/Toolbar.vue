@@ -1,6 +1,6 @@
 <template>
-    <v-toolbar>
-        <v-toolbar-title>Jers</v-toolbar-title>
+    <v-toolbar color="indigo" dark>
+        <v-toolbar-title>Realtime App</v-toolbar-title>
         <v-spacer></v-spacer>
         <app-notification v-if="loggedIn"></app-notification>
         <div class="hidden-sm-and-down">
