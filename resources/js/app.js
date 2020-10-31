@@ -17,8 +17,15 @@ Vue.component('vue-simplemde', VueSimplemde)
 import md from 'marked'
 window.md = md
 
+import Exception from './Helpers/Exception'
+window.Exception = Exception
+
+/*const Exception = require("./Helpers/Exception");
+this.Exception = new EditorJS();*/
+
 import User from './Helpers/User';
 window.User = User;
+
 window.EventBus = new Vue();
 
 /**

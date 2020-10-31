@@ -10,7 +10,7 @@ import createCategory from "../components/category/createCategory";
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/realtimeApp/public/login', component: Login },
+    { path: '/realtimeApp/public/login', component: Login, name: 'login' },
     { path: '/realtimeApp/public/signup', component: signup },
     { path: '/realtimeApp/public/forum', component: Forum , name: 'forum' },
     { path: '/realtimeApp/public/logout', component: Logout},

@@ -4,7 +4,8 @@
         <ShowQuestion v-else :data = question></ShowQuestion>
         <v-container>
             <replies :question="question"></replies>
-            <new-reply :questionSlug="question.slug"></new-reply>
+            <new-reply v-if="loggedIn" :questionSlug="question.slug"></new-reply>
+                <router-link v-else to="/realtimeApp/public/login">Log in to Reply</router-link>
         </v-container>
     </div>
 </template>
@@ -26,6 +27,11 @@
         created(){
             this.listen();
             this.getQuestion()
+        },
+        computed:{
+          loggedIn(){
+              return User.loggedIn()
+          }
         },
         methods:{
             listen(){
